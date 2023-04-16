@@ -1,4 +1,4 @@
-# git.properties
+# git.properties - rename to git.properties from git.properties.prop
 # git.tags=$(GitTag)
 # git.branch=${git.branch}
 # git.remote.origin.url=${git.remote.origin.url}

@@ -12,7 +12,7 @@ namespace ActuatorTest
             var tag = $"{ThisAssembly.Git.BaseVersion.Major}.{ThisAssembly.Git.BaseVersion.Minor}.{ThisAssembly.Git.BaseVersion.Patch}";
             var version = $"{tag}-{ThisAssembly.Git.Commit}";
 
-            builder.WithInfo("git_info", new
+            builder.WithInfo("git", new
             {
                 branch = ThisAssembly.Git.Branch,
                 commit = new
