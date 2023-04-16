@@ -4,12 +4,29 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GitVersion>false</GitVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Steeltoe.Management.EndpointCore" Version="3.2.3" />
     <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.2.3" />
+    <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.2.3" />
+    <PackageReference Include="GitInfo" Version="2.3.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
+
+  <Target Name="PopulateInfo" DependsOnTargets="GitVersion" BeforeTargets="GetAssemblyVersion;GenerateNuspec;GetPackageContents">
+      <PropertyGroup>
+          <Version>$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)+$(GitBranch).$(GitCommit)</Version>
+          <PackageVersion>$(Version)</PackageVersion>
+
+          <RepositoryBranch>$(GitBranch)</RepositoryBranch>
+          <RepositoryCommit>$(GitCommit)</RepositoryCommit>
+          <SourceRevisionId>$(GitBranch) $(GitCommit)</SourceRevisionId>
+      </PropertyGroup>
+  </Target>
 
 </Project>

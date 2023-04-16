@@ -1,9 +1,13 @@
-﻿using Steeltoe.Extensions.Configuration.ConfigServer;
+﻿using ActuatorTest;
+using Steeltoe.Extensions.Configuration.ConfigServer;
 using Steeltoe.Management.Endpoint;
+using Steeltoe.Management.Endpoint.Info.Contributor;
+using Steeltoe.Management.Info;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.AddConfigServer();
+builder.WebHost.AddConfigServer()
+    .AddDbMigrationsActuator().AddHealthActuator();
 
 // builder.Configuration.AddConfigServer();
 
@@ -17,6 +21,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAllActuators(builder.Configuration);
 builder.Services.ActivateActuatorEndpoints();
 
+builder.Services.AddSingleton<IInfoContributor, GitInformation>();
 
 var app = builder.Build();
 
