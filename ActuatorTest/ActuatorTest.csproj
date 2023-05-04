@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GitVersion>false</GitVersion>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>34649767-7920-4545-a9b4-c5b68d0f2cf5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
