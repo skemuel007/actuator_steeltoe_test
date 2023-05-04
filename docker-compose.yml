@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  actuatortest:
+    image: ${DOCKER_REGISTRY-}actuatortest
+    build:
+      context: .
+      dockerfile: ActuatorTest/Dockerfile

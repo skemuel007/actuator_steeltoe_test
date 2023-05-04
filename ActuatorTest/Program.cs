@@ -6,8 +6,8 @@ using Steeltoe.Management.Info;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.AddConfigServer()
-    .AddDbMigrationsActuator().AddHealthActuator();
+/*builder.WebHost.AddConfigServer()
+    .AddDbMigrationsActuator().AddHealthActuator();*/
 
 // builder.Configuration.AddConfigServer();
 
